@@ -7,6 +7,10 @@
     <!-- Link external CSS styles here -->
     <link rel="stylesheet" href="style.css">
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
         .gallery-container {
             display: flex;
             flex-direction: column;
@@ -31,7 +35,10 @@
             background: #15988b;
             color: rgb(0, 0, 0);
             border:2px solid #000000; 
-            padding: 0px 100px 5px 100px;
+            padding-right: 18%;
+            padding-left: 18%;
+            margin-right:2%;
+            margin-left:2%;
             font-size: 35px;
             font-weight: 900;
             cursor: pointer;
@@ -55,8 +62,8 @@
             font-style: italic;
         }
         .next-prev-buttons {
-            display:flex;
-            gap: 20px;
+            display:block;
+            width:100%;
         }
         .title-area {
             width:100%;
@@ -83,8 +90,10 @@
             <div class="image-wrapper">
                 <img width="100%" id="galleryDisplay" class="gallery-img" src="" alt="Gallery Image">
                 <div class="next-prev-buttons">
+                    <center>
                     <button id="prevBtn" class="nav-btn" onclick="changeImage(-1)">&larr;</button>
                     <button id="nextBtn" class="nav-btn" onclick="changeImage(1)">&rarr;</button>
+                </center>
                 </div>
             </div>
             
