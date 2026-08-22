@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam's Comics</title>
+    <!-- Link external CSS styles here -->
+    <link rel="stylesheet" href="both_style.css">
+    <link rel="stylesheet" href="sam_style.css">
+</head>
+<body>
+
+    <header >
+        <div class = "title-area">
+        <center>
+        <h1>Evie and Sam's Website</h1> 
+        <div class = 'page-links'>
+        <a class = 'inactive-name' href="evie.html">Evie's Comics</a>
+        <a class = 'active-name'>Sam's Comics</a>
+    </div> 
+        </center>
+    </div>
+    </header>
+
+    <main>
+        <div class="gallery-container">
+            <div id="imageCounter" class="counter"></div>
+            <div class="image-wrapper">
+                <div class = 'gallery-img-box'>
+                    <img  id="galleryDisplay" class="gallery-img" src="" alt="Gallery Image">
+                </div> 
+                <div class="next-prev-buttons">
+                    <center>
+                    <button id="prevBtn" class="nav-btn" onclick="changeImage(-1)">&larr;</button>
+                    <button id="nextBtn" class="nav-btn" onclick="changeImage(1)">&rarr;</button>
+                </center>
+                </div>
+            </div>
+            
+        </div>
+        
+        <script>
+            // 1. SET YOUR TOTAL NUMBER OF IMAGES (N) HERE
+            const TOTAL_IMAGES = 11; 
+        
+            // Start at the most recent image (N)
+            let currentIndex = TOTAL_IMAGES; 
+        
+            const imgElement = document.getElementById('galleryDisplay');
+            const counterElement = document.getElementById('imageCounter');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+        
+            function updateGallery() {
+                // Update image source path
+                imgElement.src = `sam_images/${currentIndex}.png`;
+                
+                // Update text counter
+                counterElement.innerText = `Number ${currentIndex}`;
+        
+                // Disable buttons at boundaries
+                prevBtn.disabled = (currentIndex === 1);
+                nextBtn.disabled = (currentIndex === TOTAL_IMAGES);
+            }
+        
+            function changeImage(direction) {
+                let nextIndex = currentIndex + direction;
+                
+                // Ensure index stays within 1 to N bounds
+                if (nextIndex >= 1 && nextIndex <= TOTAL_IMAGES) {
+                    currentIndex = nextIndex;
+                    updateGallery();
+                }
+            }
+        
+            // Initialize gallery on page load
+            window.onload = updateGallery;
+        </script>
+    </main>
+    
+ 
+
+    <!-- Link external JavaScript here -->
+    <script src="script.js"></script>
+</body>
+</html>

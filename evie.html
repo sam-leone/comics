@@ -3,83 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evie and Sam's Website</title>
+    <title>Evie's Comics</title>
     <!-- Link external CSS styles here -->
-    <link rel="stylesheet" href="style.css">
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-        }
-        .gallery-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 20px auto;
-        }
-        .image-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-        .gallery-img {
-            max-width: 100%;
-            max-height: 500px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .nav-btn {
-            background: #15988b;
-            color: rgb(0, 0, 0);
-            border:2px solid #000000; 
-            padding-right: 17%;
-            padding-left: 17%;
-            margin-right:2%;
-            margin-left:2%;
-            font-size: 35px;
-            font-weight: 900;
-            cursor: pointer;
-            border-radius: 4px;
-            user-select: none;
-        }
-        .nav-btn:hover {
-            background:  #0d5d55;
-        }
-        .nav-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-        .counter {
-            margin-top: 10px;
-            font-size: 40px;
-            margin-bottom:20px;
-            font-weight:bolder;
-            color: #000000;
-            font-family: 'Times New Roman', Times, serif;
-            font-style: italic;
-        }
-        .next-prev-buttons {
-            display:block;
-            width:100%;
-        }
-        .title-area {
-            width:100%;
-            font-family: 'Times New Roman', Times, serif;
-            font-style: italic;
-            font-weight:bolder;
-            border-bottom: 3px solid black;
-        }
-    </style>
+    <link rel="stylesheet" href="both_style.css">
+    <link rel="stylesheet" href="evie_style.css">
 </head>
 <body>
 
     <header >
         <div class = "title-area">
         <center>
-        <h1>Evie and Sam's Website</h1>
+            <h1>Evie and Sam's Website</h1> 
+            <div class = 'page-links'>
+            <a class="active-name">Evie's Comics</a> 
+            <a class = "inactive-name" href="sam.html">Sam's Comics</a>
+        </div>
         </center>
     </div>
     </header>
@@ -88,12 +26,14 @@
         <div class="gallery-container">
             <div id="imageCounter" class="counter"></div>
             <div class="image-wrapper">
-                <img width="100%" id="galleryDisplay" class="gallery-img" src="" alt="Gallery Image">
                 <div class="next-prev-buttons">
                     <center>
                     <button id="prevBtn" class="nav-btn" onclick="changeImage(-1)">&larr;</button>
                     <button id="nextBtn" class="nav-btn" onclick="changeImage(1)">&rarr;</button>
                 </center>
+                </div>
+                <div class = 'gallery-img-box'>
+                <img  id="galleryDisplay" class="gallery-img" src="" alt="Gallery Image">
                 </div>
             </div>
             
@@ -101,7 +41,7 @@
         
         <script>
             // 1. SET YOUR TOTAL NUMBER OF IMAGES (N) HERE
-            const TOTAL_IMAGES = 11; 
+            const TOTAL_IMAGES = 2; 
         
             // Start at the most recent image (N)
             let currentIndex = TOTAL_IMAGES; 
@@ -113,7 +53,7 @@
         
             function updateGallery() {
                 // Update image source path
-                imgElement.src = `images/${currentIndex}.png`;
+                imgElement.src = `evie_images/${currentIndex}.png`;
                 
                 // Update text counter
                 counterElement.innerText = `Number ${currentIndex}`;
